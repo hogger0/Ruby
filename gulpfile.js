@@ -46,7 +46,7 @@ function css(done) {
   );
   pump(
     [
-      src("assets/css/main.css"),
+      src("assets/css/main.css", { sourcemaps: true }),
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
     ],
@@ -88,8 +88,8 @@ function js(done) {
   );
   pump(
     [
-      src("assets/js/portal.min.js"),
-      //uglify(), // 压缩（可选）
+      src("assets/js/portal.min.js", { sourcemaps: true }),
+      uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
     ],
@@ -97,8 +97,8 @@ function js(done) {
   );
   pump(
     [
-      src("assets/js/sodo-search.min.js"),
-      //uglify(), // 压缩（可选）
+      src("assets/js/sodo-search.min.js", { sourcemaps: true }),
+      uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
     ],
@@ -106,8 +106,8 @@ function js(done) {
   );
   pump(
     [
-      src("assets/js/comments-ui.min.js"),
-      //uglify(), // 压缩（可选）
+      src("assets/js/comments-ui.min.js", { sourcemaps: true }),
+      uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
     ],
@@ -115,8 +115,8 @@ function js(done) {
   );
   pump(
     [
-      src("assets/js/announcement-bar.min.js"),
-      //uglify(), // 压缩（可选）
+      src("assets/js/announcement-bar.min.js", { sourcemaps: true }),
+      uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
     ],
@@ -124,8 +124,8 @@ function js(done) {
   );
   pump(
     [
-      src("assets/js/signup-form.min.js"),
-      //uglify(), // 压缩（可选）
+      src("assets/js/signup-form.min.js", { sourcemaps: true }),
+      uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
     ],
