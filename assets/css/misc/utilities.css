@@ -2,11 +2,13 @@
   overflow: hidden;
   border-radius: 8px;
   box-shadow: var(--shadow-base);
-  transition: box-shadow 0.3s var(--animation-base);
+  transition: box-shadow 0.3s var(--animation-base),
+    transform 0.5s var(--animation-base);
 }
 
 .u-shadow:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
 }
 
 .u-placeholder {

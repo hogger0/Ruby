@@ -44,6 +44,14 @@ function css(done) {
     ],
     handleError(done)
   );
+  pump(
+    [
+      src("assets/css/main.css"),
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
 }
 
 function getJsFiles(version) {
@@ -87,10 +95,36 @@ function js(done) {
     ],
     handleError(done)
   );
-
   pump(
     [
       src("assets/js/sodo-search.min.js"),
+      //uglify(), // 压缩（可选）
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
+  pump(
+    [
+      src("assets/js/comments-ui.min.js"),
+      //uglify(), // 压缩（可选）
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
+  pump(
+    [
+      src("assets/js/announcement-bar.min.js"),
+      //uglify(), // 压缩（可选）
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
+  pump(
+    [
+      src("assets/js/signup-form.min.js"),
       //uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
