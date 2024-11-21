@@ -1,0 +1,50 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file into the body of the default.hbs template --}}
+
+{{#post}}
+
+<main class="gh-main">
+    <article class="gh-article {{post_class}}">
+
+        {{#match @page.show_title_and_feature_image}}
+            <header class="gh-article-header gh-canvas">
+                <h1 class="gh-article-title is-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                    <p class="gh-article-excerpt is-body">{{custom_excerpt}}</p>
+                {{/if}}
+                {{> "post-image"}}
+            </header>
+        {{/match}}
+
+        <div class="l-content">
+    <div class="l-wrapper" data-animate="fade-up">
+      <div class="l-tags-container">
+        {{#get 'tags' limit='all' include='count.posts'}}
+          {{#foreach tags}}
+            <div class="m-tag-card">
+              <a href="{{url}}" class="m-tag-card__link {{#unless feature_image}}no-picture{{/unless}}" aria-label="{{name}}">
+                {{#if feature_image}}
+                  <img class="m-tag-card__picture" src="{{img_url feature_image size="m"}}" loading="lazy" alt="">
+                {{/if}}
+                <div class="m-tag-card__info {{#unless feature_image}}no-picture{{/unless}}">
+                  <h4 class="m-tag-card__name">{{name}}</h4>
+                  <span class="m-tag-card__counter">
+                    {{plural count.posts empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}
+                  </span>
+                </div>
+              </a>
+            </div>
+            {{else}}
+              <p class="m-not-found">
+                {{t "No tags found :("}}
+              </p>
+          {{/foreach}}
+        {{/get}}
+      </div>
+    </div>
+  </div>
+
+    </article>
+</main>
+
+{{/post}}
