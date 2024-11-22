@@ -4,12 +4,24 @@
 <main class="site-main gh-inner">
 
     {{#tag}}
-    <div class="term">
-        <h1 class="term-name">{{name}}</h1>
-        {{#if description}}
-            <p class="term-description">{{description}}</p>
-        {{/if}}
+    <div class="post-tag-term">
+        <div class="post-tag-term-info">
+            <h1 class="post-tag-term-name dark:bg-gray-900 dark:text-gray-100">{{name}}</h1>
+            {{#if description}}
+                <p class="post-tag-term-description dark:bg-gray-900 dark:text-gray-100">{{description}}</p>
+            {{/if}}
+        </div>
+        <div class="post-tag-term-image">
+            {{#if feature_image}}
+            <img
+                src="{{img_url feature_image}}"
+                alt="{{title}}"
+                loading="lazy"
+            >
+            {{/if}}
+        </div>
     </div>
+
     {{/tag}}
 
     <div class="post-feed gh-feed">
