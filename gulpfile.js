@@ -37,9 +37,16 @@ function hbs(done) {
 function css(done) {
   pump(
     [
-      src(["assets/css/screen.css", "assets/css/main.css"], {
-        sourcemaps: true,
-      }),
+      src(
+        [
+          "assets/css/screen.css",
+          "assets/css/main.css",
+          "assets/css/atom-one-dark.min.css",
+        ],
+        {
+          sourcemaps: true,
+        }
+      ),
       postcss([easyimport, autoprefixer(), cssnano()]),
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
@@ -119,6 +126,15 @@ function js(done) {
   pump(
     [
       src("assets/js/signup-form.min.js", { sourcemaps: true }),
+      uglify(), // 压缩（可选）
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
+  pump(
+    [
+      src("assets/js/highlight.min.js", { sourcemaps: true }),
       uglify(), // 压缩（可选）
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),

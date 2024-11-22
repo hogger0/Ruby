@@ -7,6 +7,7 @@
     <title>{{meta_title}}</title>
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
     <link rel="stylesheet" href="{{asset "css/style.css"}}" />
+    <link rel="stylesheet" href="{{asset "built/atom-one-dark.min.css"}}">
 
     {{ghost_head}}
 </head>
@@ -132,6 +133,10 @@
 {{/is}}
 
 <script src="{{asset "built/main.min.js"}}"></script>
+<script src="{{asset "built/highlight.min.js"}}"></script>
+<script>
+    hljs.highlightAll();
+</script>
 
 {{ghost_foot}}
 
